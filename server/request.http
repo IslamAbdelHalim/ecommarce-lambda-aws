@@ -1,0 +1,11 @@
+### register auth
+POST http://127.0.0.1:3000/auth/register
+Content-Type: 'application/json
+
+{
+  "email": "islam@gmail.com",
+  "password": "123"
+}
+
+### test hello
+GET http://127.0.0.1:3000/hello
