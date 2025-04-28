@@ -14,19 +14,19 @@ Globals:
     LoggingConfig:
       LogFormat: JSON
 Resources:
-  HelloWorldFunction:
+  GetPresignUrl:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
-      CodeUri: ./server
-      Handler: app.lambdaHandler
+      CodeUri: ./server/authModule
+      Handler: authHandler.handler
       Runtime: nodejs22.x
       Architectures:
         - x86_64
       Events:
-        HelloWorld:
+        GetPresignUrl:
           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
           Properties:
-            Path: /hello
+            Path: /get-presigned-url
             Method: get
     Metadata: # Manage esbuild properties
       BuildMethod: esbuild
@@ -44,7 +44,10 @@ Resources:
       Runtime: nodejs22.x
       Environment:
         Variables:
-          ACCESS_TOKEN: fb04ee99710240dc3ebf8f0c7972963e7e564f0a3a3b715045c9b95abe55ccb0
+          JWT_ACCESS_TOKEN: fb04ee99710240dc3ebf8f0c7972963e7e564f0a3a3b715045c9b95abe55ccb0
+          JWT_REFRESH_TOKEN: fb04ee99710240dc3ebf8f0c7972963e7e564f0a3a3b715045c9b95abe55ccb0
+          JWT_ACCESS_EXPIRESIN: "10M"
+          JWT_REFRESH_EXPIRESIN: "30d" 
       Events:
         register:
           Type: Api
@@ -56,6 +59,16 @@ Resources:
           Properties:
             Path: /auth/login
             Method: POST
+        refreshToken:
+          Type: Api
+          Properties:
+            Path: /auth/refresh-token
+            Method: POST
+        profile:
+          Type: Api
+          Properties:
+            Path: /profile
+            Method: GET
     Metadata: # Manage esbuild properties
       BuildMethod: esbuild
       BuildProperties:

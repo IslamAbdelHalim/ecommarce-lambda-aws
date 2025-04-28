@@ -48,9 +48,9 @@ function createConnection() {
                 case 0:
                     console.log(process.env.Db_HOST);
                     return [4 /*yield*/, mysql.createConnection({
-                            host: process.env.DB_HOST,
-                            user: process.env.DB_USER,
-                            password: process.env.DB_PASSWORD,
+                            host: 'localhost',
+                            user: 'root',
+                            password: 'password',
                             multipleStatements: true,
                         })];
                 case 1: return [2 /*return*/, _a.sent()];
