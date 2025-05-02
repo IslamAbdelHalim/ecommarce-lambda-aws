@@ -1,0 +1,74 @@
+<div class="card">
+  <p-dataview #dv [value]="products()" [layout]="layout">
+    <ng-template #header>
+      <div class="flex justify-content-end">
+        <p-selectButton
+          [(ngModel)]="layout"
+          [options]="options"
+          [allowEmpty]="false"
+        >
+          <ng-template #item let-item>
+            <i class="pi" [ngClass]="item.icon"></i>
+          </ng-template>
+        </p-selectButton>
+      </div>
+    </ng-template>
+
+    <ng-template #grid let-products>
+      <div class="grid">
+        <div *ngFor="let product of products" class="col-12 col-sm-2 col-md-4">
+          <div class="product-card p-4 border-1 surface-border border-round">
+            <div class="flex flex-column align-items-center">
+              <img
+                [src]="product.image"
+                [alt]="product.title"
+                class="w-9 shadow-2 my-3 mx-0"
+                style="height: 200px; object-fit: cover"
+              />
+              <div class="text-2xl font-bold">{{ product.title }}</div>
+              <div class="text-xl text-primary font-semibold mt-2">
+                {{ product.price | currency }}
+              </div>
+              <div class="text-sm text-500 mt-2">{{ product.category }}</div>
+              <p-button
+                icon="pi pi-shopping-cart"
+                label="Add to Cart"
+                class="mt-3"
+              ></p-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template #list let-products>
+      <div class="grid">
+        <div *ngFor="let product of products" class="col-12">
+          <div class="p-4 border-1 surface-border border-round">
+            <div class="flex flex-row align-items-center">
+              <img
+                [src]="product.image"
+                [alt]="product.title"
+                class="w-6 shadow-2 mr-4"
+                style="height: 150px; object-fit: cover"
+              />
+              <div class="flex flex-column flex-1">
+                <div class="text-2xl font-bold">{{ product.title }}</div>
+                <div class="text-xl text-primary font-semibold mt-2">
+                  {{ product.price | currency }}
+                </div>
+                <div class="text-sm text-500 mt-2">{{ product.category }}</div>
+                <div class="text-sm mt-2">{{ product.description }}</div>
+              </div>
+              <p-button
+                icon="pi pi-shopping-cart"
+                label="Add to Cart"
+                class="ml-4"
+              ></p-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-dataview>
+</div>

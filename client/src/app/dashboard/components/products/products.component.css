@@ -1,0 +1,195 @@
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-info {
+  padding: 1rem;
+}
+
+.profile-info h4 {
+  color: #495057;
+  margin-bottom: 0.5rem;
+}
+
+.profile-info p {
+  color: #6c757d;
+  margin-bottom: 1rem;
+}
+
+:host ::ng-deep .p-card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+:host ::ng-deep .p-card-header {
+  padding: 2rem 1rem;
+  background-color: #f8f9fa;
+}
+
+.accountsection,
+.passwordsection {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin: 2rem auto;
+  padding: 2rem;
+  max-width: 800px;
+}
+
+.labele {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.eachlabel {
+  font-size: 1rem;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.inputuserprofile {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #f8f9fa;
+}
+
+.inputuserprofile:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+  background-color: white;
+}
+
+.updatebutton,
+.resetbutton {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin-right: 1rem;
+}
+
+.updatebutton {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+}
+
+.updatebutton:hover {
+  background-color: #357abd;
+  transform: translateY(-1px);
+}
+
+.resetbutton {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  border: 1px solid #e9ecef;
+}
+
+.resetbutton:hover {
+  background-color: #e9ecef;
+  transform: translateY(-1px);
+}
+
+/* Profile info styling */
+h4 {
+  color: #2c3e50;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.text-muted {
+  color: #6c757d;
+  font-size: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .accountsection,
+  .passwordsection {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .col-md-4 {
+    margin-bottom: 0.5rem;
+  }
+
+  .updatebutton,
+  .resetbutton {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Animation for buttons */
+.updatebutton,
+.resetbutton {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.updatebutton:active,
+.resetbutton:active {
+  transform: translateY(1px);
+}
+
+/* Add some spacing between sections */
+.passwordsection {
+  margin-top: 3rem;
+}
+
+/* Add hover effect for input fields */
+.inputuserprofile:hover {
+  border-color: #4a90e2;
+}
+
+.card {
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-card {
+  transition: transform 0.2s ease-in-out;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-image {
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.text-primary {
+  color: var(--primary-color);
+}
+
+.text-500 {
+  color: var(--text-color-secondary);
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    padding: 1rem;
+  }
+
+  .grid {
+    gap: 1rem;
+  }
+}
