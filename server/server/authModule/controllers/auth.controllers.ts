@@ -56,17 +56,15 @@ export default class AuthController {
 
   async getPreSignedUrl() {
     const fileName = this.event.queryStringParameters?.fileName;
-    const fileType = this.event.queryStringParameters?.fileType;
+    const fileExt = this.event.queryStringParameters?.fileExt;
 
-    if (!fileName || !fileType) {
-      return apiResponse(400, JSON.stringify({ message: 'please provide file name and file type' }));
+    if (!fileName || !fileExt) {
+      return apiResponse(400, JSON.stringify({ message: 'please provide file name and file Extension' }));
     }
 
-    const ext = fileType.split('/')[1] || 'png';
-    const fileExt = fileName.split('.')[0];
     const randomPart = crypto.randomBytes(16).toString('hex');
     const timestamp = Date.now();
-    const generatedFileName = `profile-picture-${randomPart}-${timestamp}.${ext}`;
+    const generatedFileName = `profile-picture-${fileName}-${randomPart}-${timestamp}.${fileExt}`;
 
     const { signedUrl, fileUrl } = await generatePreSignedUrl(generatedFileName, fileExt);
 

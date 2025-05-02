@@ -14,7 +14,7 @@ async function generatePreSignedUrl(fileName: string, filExt: string): Promise<{
   try {
     const command = new PutObjectCommand(params);
     const signedUrl = await getSignedUrl(s3, command, { expiresIn: 360 });
-    const fileUrl = `https://${process.env.S3_BUCKET_NAME}.s3.amazonaws.com/${fileName}`;
+    const fileUrl = `https://${bucketName}.s3.amazonaws.com/${fileName}`;
     return { signedUrl, fileUrl };
   } catch (error) {
     console.error('Error generating presigned URL:', error);
